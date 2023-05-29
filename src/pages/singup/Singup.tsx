@@ -18,7 +18,7 @@ import {MdLocationCity} from 'react-icons/md'
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useEffect, useState } from "react";
-import { RootState, store } from "../../reducers/usersStore";
+import { RootState } from "../../reducers/usersStore";
 import { useDispatch, useSelector } from "react-redux";
 import { added } from "../../reducers/usersReducer";
 
