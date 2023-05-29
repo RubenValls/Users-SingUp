@@ -17,11 +17,19 @@ import {AiOutlinePhone, AiOutlineMail, AiOutlineHome} from 'react-icons/ai'
 import {MdLocationCity} from 'react-icons/md'
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { RootState, store } from "../../reducers/usersStore";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Singup() {
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
+  const users = useSelector((state: RootState) => state?.value)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    console.log('USUARIOS: ', users)
+  }, []);
 
   const initialValues = {
     name: "",
@@ -74,9 +82,9 @@ export default function Singup() {
             }) => (
             <form noValidate onSubmit={handleSubmit}>
             <Box borderWidth='1px' borderRadius='lg' overflow='hidden'>
-            <Center mb='5px'>
+            <Center p="3px" backgroundColor="teal.400">
               <Heading size='lg'>
-                Sing up - Form
+                New User
               </Heading>
             </Center>
             <Divider w='100%' m='auto'/>
