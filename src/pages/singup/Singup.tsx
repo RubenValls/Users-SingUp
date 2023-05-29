@@ -20,6 +20,7 @@ import * as Yup from "yup";
 import { useEffect, useState } from "react";
 import { RootState, store } from "../../reducers/usersStore";
 import { useDispatch, useSelector } from "react-redux";
+import { added } from "../../reducers/usersReducer";
 
 export default function Singup() {
   const [show, setShow] = useState(false)
@@ -29,7 +30,7 @@ export default function Singup() {
 
   useEffect(() => {
     console.log('USUARIOS: ', users)
-  }, []);
+  }, [users]);
 
   const initialValues = {
     name: "",
@@ -70,6 +71,7 @@ export default function Singup() {
             initialValues={initialValues}
             onSubmit={(values) => {
               alert(JSON.stringify(values));
+              dispatch(added(values))
             }}
           >
             {({

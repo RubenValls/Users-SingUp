@@ -1,17 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { users } from "./initialState"
 
 const usersSlice = createSlice({
     name: 'users',
     initialState: {
-        value: users
+        value: []
     },
     reducers: {
-        added: state => {
-            state.value
+        added: (state, values?) => {
+            state.value = values?.payload
         },
-        deleted: state => {
-            state.value
+        deleted: (state) => {
+            state.value = []
         }
     }
     })
