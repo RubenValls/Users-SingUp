@@ -16,56 +16,27 @@ import {
 import {AiOutlinePhone, AiOutlineMail, AiOutlineHome} from 'react-icons/ai'
 import {MdLocationCity} from 'react-icons/md'
 import { Formik } from "formik";
-import * as Yup from "yup";
 import { useEffect, useState } from "react";
 import { RootState } from "../../reducers/usersStore";
 import { useDispatch, useSelector } from "react-redux";
 import { added } from "../../reducers/usersReducer";
+import { initialValues, validationSchema } from "../../utils/singUpConstants";
 
 export default function Singup() {
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
-  const users = useSelector((state: RootState) => state?.value)
+  const users : any = useSelector((state: RootState) => state?.value)
   const dispatch = useDispatch()
 
   useEffect(() => {
     console.log('USUARIOS: ', users)
   }, [users]);
 
-  const initialValues = {
-    name: "",
-    surname: "",
-    email: "", 
-    phone: "",
-    city: "",
-    address: "",
-    password: ""
-  }
-
-  const validationSchema = Yup.object().shape({
-    name: Yup.string()
-      .required("Name is a required field"),
-    surname: Yup.string()
-      .required("Surname is a required field"),
-    email: Yup.string()
-      .required("Email is a required field")
-      .email("Invalid email format"),
-    phone: Yup.string()
-      .required("Phone is a required field"),
-    city: Yup.string()
-      .required("City Name is a required field"),
-    address: Yup.string()
-      .required("Address is a required field"),
-    password: Yup.string()
-      .required("Password is a required field")
-      .min(8, "Password must be at least 8 characters"),
-  });
-
 
   return (
     <>
-        <Center h='100vh' m='auto'>
-        <Box h='auto' w='100%' ml='10px' mr='10px'>
+        <Center m='auto'>
+        <Box h='auto' w='100%' m='10px' mr='10px' mt='47px'>
           <Formik
             validationSchema={validationSchema}
             initialValues={initialValues}

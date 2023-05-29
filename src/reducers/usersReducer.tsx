@@ -6,8 +6,11 @@ const usersSlice = createSlice({
         value: []
     },
     reducers: {
-        added: (state, values?) => {
-            state.value = values?.payload
+        added: (state : any, values?) => {
+            state?.value.push(values?.payload)
+        },
+        modified: (state) => {
+            state.value = []
         },
         deleted: (state) => {
             state.value = []
@@ -15,5 +18,5 @@ const usersSlice = createSlice({
     }
     })
 
-export const { added, deleted } = usersSlice.actions
+export const { added, modified, deleted } = usersSlice.actions
 export default usersSlice.reducer
