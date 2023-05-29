@@ -10,7 +10,6 @@ import {
   InputLeftElement,
   HStack,
   FormControl,
-  FormHelperText,
   FormErrorMessage,
   Flex
 } from "@chakra-ui/react";
