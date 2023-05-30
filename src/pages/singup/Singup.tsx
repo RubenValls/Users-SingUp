@@ -32,6 +32,7 @@ export default function Singup() {
   const toast = useToast()
 
   useEffect(() => {
+    console.log(users)
     updateLocalStorage(users)
   }, [users]);
 
