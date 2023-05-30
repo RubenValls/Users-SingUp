@@ -16,7 +16,7 @@ export default function Users() {
     <>
         <Box h='auto' w='100%' ml='10px' mr='10px'>
           <Box mt='50px'>
-            <DataTable value={JSON.parse(usersData)} selectionMode="single" selection={selectedUser} onSelectionChange={(e) => setSelectedUser(e?.value)} onRowSelect={onRowSelect} tableStyle={{ minWidth: 'auto' }}>
+            <DataTable value={usersData?.length > 0 ? JSON.parse(usersData) : []} selectionMode="single" selection={selectedUser} onSelectionChange={(e) => setSelectedUser(e?.value)} onRowSelect={onRowSelect} tableStyle={{ minWidth: 'auto' }}>
               <Column field='name' header='Name' sortable></Column>
               <Column field='surname' header='Surname' sortable></Column>
               <Column field='email' header='Email' sortable></Column>
