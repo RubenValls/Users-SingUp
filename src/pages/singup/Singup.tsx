@@ -20,7 +20,7 @@ import { Formik } from "formik";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { added } from "../../reducers/usersReducer";
-import { initialValues, validationSchema } from "../../utils/singUpConstants";
+import { initialValues, validationSchema } from "../../utils/constants/singUpConstants";
 
 export default function Singup() {
   const [show, setShow] = useState(false)
@@ -30,6 +30,7 @@ export default function Singup() {
   const toast = useToast()
 
   const checkSubmitAction = (values : any) => {
+    
     const _finded = users?.find((user : any) => user?.email === values?.email)
 
     if(_finded){
