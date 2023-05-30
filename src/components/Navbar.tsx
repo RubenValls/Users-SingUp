@@ -25,9 +25,9 @@ export default function Navbar() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef : any = useRef()
 
-  return (
+    return (
     <>
-        <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
+        <Button ref={btnRef} backgroundColor='teal.400' onClick={onOpen} position='absolute' ml='10px'>
             <RiMenuUnfoldFill/>
         </Button>
         <Drawer

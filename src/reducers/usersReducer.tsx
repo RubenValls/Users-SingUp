@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { getInitialValues } from "../utils/localStorage"
 
 const usersSlice = createSlice({
     name: 'users',
     initialState: {
-        value: []
+        value: getInitialValues()
     },
     reducers: {
         added: (state : any, values?) => {

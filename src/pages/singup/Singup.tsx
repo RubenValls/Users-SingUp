@@ -11,7 +11,8 @@ import {
   HStack,
   FormControl,
   FormErrorMessage,
-  Flex
+  Flex,
+  useToast 
 } from "@chakra-ui/react";
 import {AiOutlinePhone, AiOutlineMail, AiOutlineHome} from 'react-icons/ai'
 import {MdLocationCity} from 'react-icons/md'
@@ -21,17 +22,41 @@ import { RootState } from "../../reducers/usersStore";
 import { useDispatch, useSelector } from "react-redux";
 import { added } from "../../reducers/usersReducer";
 import { initialValues, validationSchema } from "../../utils/singUpConstants";
+import { updateLocalStorage } from "../../utils/localStorage";
 
 export default function Singup() {
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
   const users : any = useSelector((state: RootState) => state?.value)
   const dispatch = useDispatch()
+  const toast = useToast()
 
   useEffect(() => {
-    console.log('USUARIOS: ', users)
+    updateLocalStorage(users)
   }, [users]);
 
+  const checkSubmitAction = (values : any) => {
+    const _finded = users?.find((user : any) => user?.email === values?.email)
+
+    if(_finded){
+      toast({
+        title: 'Error:',
+        description: "There is a user with the same email.",
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      }) 
+    }else{
+      dispatch(added(values))
+      toast({
+        title: 'Account created.',
+        description: "Added info to users panel.",
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      })
+    }
+  }
 
   return (
     <>
@@ -41,8 +66,7 @@ export default function Singup() {
             validationSchema={validationSchema}
             initialValues={initialValues}
             onSubmit={(values) => {
-              alert(JSON.stringify(values));
-              dispatch(added(values))
+              checkSubmitAction(values)
             }}
           >
             {({
