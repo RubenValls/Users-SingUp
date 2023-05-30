@@ -1,7 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import { DataTable } from 'primereact/datatable';
 import { Column } from "primereact/column";
-import { useSelector } from "react-redux";
 import { getInitialValues } from "../../utils/localStorage";
 
 export default function Users() {
@@ -20,6 +19,7 @@ export default function Users() {
               <Column field='city' header='City'></Column>
               <Column field='address' header='Address'></Column>
               <Column field='password' header='Password'></Column>
+              <Column rowEditor headerStyle={{ width: '10%', minWidth: '8rem' }} bodyStyle={{ textAlign: 'center' }}></Column>
             </DataTable>
           </Box>
         </Box>

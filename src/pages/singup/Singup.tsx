@@ -17,11 +17,10 @@ import {
 import {AiOutlinePhone, AiOutlineMail, AiOutlineHome} from 'react-icons/ai'
 import {MdLocationCity} from 'react-icons/md'
 import { Formik } from "formik";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { added } from "../../reducers/usersReducer";
 import { initialValues, validationSchema } from "../../utils/singUpConstants";
-import { updateLocalStorage } from "../../utils/localStorage";
 
 export default function Singup() {
   const [show, setShow] = useState(false)
@@ -29,11 +28,6 @@ export default function Singup() {
   const users : any = useSelector((state: any) => state?.value)
   const dispatch = useDispatch()
   const toast = useToast()
-
-  useEffect(() => {
-    console.log(users)
-    updateLocalStorage(users)
-  }, [users]);
 
   const checkSubmitAction = (values : any) => {
     const _finded = users?.find((user : any) => user?.email === values?.email)

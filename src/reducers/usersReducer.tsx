@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { getInitialValues } from "../utils/localStorage"
+import { getInitialValues, updateLocalStorage } from "../utils/localStorage"
 
 const usersSlice = createSlice({
     name: 'users',
@@ -9,6 +9,7 @@ const usersSlice = createSlice({
     reducers: {
         added: (state : any, values?) => {
             state?.value.push(values?.payload)
+            updateLocalStorage(state?.value)
         },
         modified: (state) => {
             state.value = []
