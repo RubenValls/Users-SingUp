@@ -18,7 +18,6 @@ import {AiOutlinePhone, AiOutlineMail, AiOutlineHome} from 'react-icons/ai'
 import {MdLocationCity} from 'react-icons/md'
 import { Formik } from "formik";
 import { useEffect, useState } from "react";
-import { RootState } from "../../reducers/usersStore";
 import { useDispatch, useSelector } from "react-redux";
 import { added } from "../../reducers/usersReducer";
 import { initialValues, validationSchema } from "../../utils/singUpConstants";
@@ -27,7 +26,7 @@ import { updateLocalStorage } from "../../utils/localStorage";
 export default function Singup() {
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
-  const users : any = useSelector((state: RootState) => state?.value)
+  const users : any = useSelector((state: any) => state?.value)
   const dispatch = useDispatch()
   const toast = useToast()
 
