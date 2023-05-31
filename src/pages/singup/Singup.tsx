@@ -50,6 +50,7 @@ export default function Singup() {
         duration: 3000,
         isClosable: true,
       })
+      values = initialValues
     }
   }
 

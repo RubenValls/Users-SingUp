@@ -1,7 +1,7 @@
 
 export const getInitialValues = () => {
     const values = localStorage.getItem(import.meta.env.VITE_LOCALSTORAGE_KEY)
-    return values ? values : []
+    return values ? JSON.parse(values) : []
 
 }
 
