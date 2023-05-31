@@ -7,12 +7,17 @@ const usersSlice = createSlice({
         value: getInitialValues()
     },
     reducers: {
-        added: (state : any, values?) => {
+        added: (state : any, values? : any) => {
             state?.value.push(values?.payload)
             updateLocalStorage(state?.value)
         },
-        modified: (state) => {
-            state.value = []
+        modified: (state : any, values? : any) => {
+            state?.value.map((user: any, index: any) => {
+                user.email === values?.payload?.email
+                    ? state.value[index] = values?.payload
+                    : null
+            })
+            updateLocalStorage(state?.value)
         },
         deleted: (state) => {
             state.value = []

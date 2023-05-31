@@ -23,16 +23,17 @@ import {AiOutlinePhone, AiOutlineMail, AiOutlineHome} from 'react-icons/ai'
 import {MdLocationCity} from 'react-icons/md'
 import { Formik } from "formik";
 import { useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { added } from "../reducers/usersReducer";
 import { validationSchema } from "../utils/constants/singUpConstants";
+import { useDispatch, useSelector } from "react-redux";
+import { modified } from "../reducers/usersReducer";
 
 export default function ModalFormComponent({isOpen, onClose, selectedUser} : any) {
     const [show, setShow] = useState(false)
+    const [action, setAction] = useState('')
     const handleClick = () => setShow(!show)
-    // const users : any = useSelector((state: any) => state?.value)
-    // const dispatch = useDispatch()
-    // const toast = useToast()
+    const users : any = useSelector((state: any) => state?.value)
+    const dispatch = useDispatch()
+    const toast = useToast()
 
     const initialValues = {
         name: selectedUser?.name || "",
@@ -45,7 +46,23 @@ export default function ModalFormComponent({isOpen, onClose, selectedUser} : any
     }
 
     const checkSubmitAction = (values : any) => {
-        console.log(values)
+        if(action === 'update'){
+            dispatch(modified(values))
+            toast({
+                title: 'User updated.',
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+            })
+        }else{
+            toast({
+                title: 'Funcionalidad próximamente',
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+            })
+        }
+        onClose()
     }
 
 
@@ -217,10 +234,16 @@ export default function ModalFormComponent({isOpen, onClose, selectedUser} : any
                 </ModalBody>
 
                 <ModalFooter>
-                    <Button type='submit' colorScheme='blue' mr={3}>
+                    <Button onClick={() => {
+                            setAction('update');
+                            handleSubmit();
+                        }} colorScheme='blue' mr={3}>
                     Edit User
                     </Button>
-                    <Button colorScheme='red'>Delete User</Button>
+                    <Button onClick={() => {
+                            setAction('delete');
+                            handleSubmit();
+                        }} colorScheme='red'>Delete User</Button>
                 </ModalFooter>
                 </ModalContent>
                 </form>
