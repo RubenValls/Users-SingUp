@@ -13,17 +13,26 @@ const usersSlice = createSlice({
         },
         modified: (state : any, values? : any) => {
             state?.value.map((user: any, index: any) => {
-                user.email === values?.payload?.email
+                user.password === values?.payload?.password
                     ? state.value[index] = values?.payload
                     : null
             })
             updateLocalStorage(state?.value)
         },
-        deleted: (state) => {
+        deleted: (state : any, values? : any) => {
+            state?.value.map((user: any, index: any) => {
+                user.password === values?.payload?.password
+                    ? state?.value.splice(index, 1)
+                    : null
+            })
+            updateLocalStorage(state?.value)
+        },
+        deletedAll: (state: any) => {
             state.value = []
+            updateLocalStorage(state.value)
         }
     }
     })
 
-export const { added, modified, deleted } = usersSlice.actions
+export const { added, modified, deleted, deletedAll } = usersSlice.actions
 export default usersSlice.reducer

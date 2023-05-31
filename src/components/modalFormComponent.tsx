@@ -17,7 +17,8 @@ import {
     ModalHeader,
     ModalFooter,
     ModalBody,
-    ModalCloseButton, 
+    ModalCloseButton,
+    Tooltip, 
 } from "@chakra-ui/react";
 import {AiOutlinePhone, AiOutlineMail, AiOutlineHome} from 'react-icons/ai'
 import {MdLocationCity} from 'react-icons/md'
@@ -25,7 +26,8 @@ import { Formik } from "formik";
 import { useState } from "react";
 import { validationSchema } from "../utils/constants/singUpConstants";
 import { useDispatch, useSelector } from "react-redux";
-import { modified } from "../reducers/usersReducer";
+import { deleted, modified } from "../reducers/usersReducer";
+import { checkEmailRepeat } from "../utils/functions/usersFormFunctions";
 
 export default function ModalFormComponent({isOpen, onClose, selectedUser} : any) {
     const [show, setShow] = useState(false)
@@ -46,24 +48,34 @@ export default function ModalFormComponent({isOpen, onClose, selectedUser} : any
     }
 
     const checkSubmitAction = (values : any) => {
-        console.log(users)
         if(action === 'update'){
-            dispatch(modified(values))
+            if(checkEmailRepeat(users, initialValues, values)){
+                toast({
+                    title: 'Another user has the same email.',
+                    status: 'error',
+                    duration: 3000,
+                    isClosable: true,
+                })
+            }else{
+                dispatch(modified(values))
+                toast({
+                    title: 'User updated.',
+                    status: 'success',
+                    duration: 3000,
+                    isClosable: true,
+                })
+                onClose()
+            }
+        }else{
+            dispatch(deleted(values))
             toast({
-                title: 'User updated.',
+                title: 'Usuario eliminado correctamente',
                 status: 'success',
                 duration: 3000,
                 isClosable: true,
             })
-        }else{
-            toast({
-                title: 'Funcionalidad próximamente',
-                status: 'error',
-                duration: 3000,
-                isClosable: true,
-            })
+            onClose()
         }
-        onClose()
     }
 
 
@@ -206,6 +218,7 @@ export default function ModalFormComponent({isOpen, onClose, selectedUser} : any
                                 <HStack p='5px' m='10px'>
                                 <FormControl isInvalid={errors.password && touched.password && errors.password ? true : false}>
                                     <InputGroup>
+                                    <Tooltip label={'Password cannot be modified here'}>
                                     <Input
                                         pr='4.5rem'
                                         type={show ? 'text' : 'password'}
@@ -214,7 +227,9 @@ export default function ModalFormComponent({isOpen, onClose, selectedUser} : any
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.password}
+                                        disabled
                                     />
+                                    </Tooltip>
                                     <InputRightElement width='4.5rem'>
                                         <Button h='1.75rem' size='sm' onClick={handleClick}>
                                         {show ? 'Hide' : 'Show'}
