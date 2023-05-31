@@ -46,6 +46,7 @@ export default function ModalFormComponent({isOpen, onClose, selectedUser} : any
     }
 
     const checkSubmitAction = (values : any) => {
+        console.log(users)
         if(action === 'update'){
             dispatch(modified(values))
             toast({
