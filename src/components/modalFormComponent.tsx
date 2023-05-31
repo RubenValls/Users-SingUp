@@ -103,7 +103,7 @@ export default function ModalFormComponent({isOpen, onClose, selectedUser} : any
                                     value={values.name}
                                     />
                                     {errors && (
-                                    <FormErrorMessage>{errors.name && touched.name && errors.name}</FormErrorMessage>
+                                    <FormErrorMessage>{`${errors.name && touched.name && errors.name}`}</FormErrorMessage>
                                     )}
                                 </FormControl>
                                 <FormControl isInvalid={errors.surname && touched.surname && errors.surname ? true : false} p='5px'>
@@ -115,7 +115,7 @@ export default function ModalFormComponent({isOpen, onClose, selectedUser} : any
                                     value={values.surname}
                                     />
                                     {errors && (
-                                    <FormErrorMessage>{errors.surname && touched.surname && errors.surname}</FormErrorMessage>
+                                    <FormErrorMessage>{`${errors.surname && touched.surname && errors.surname}`}</FormErrorMessage>
                                     )}
                                 </FormControl>
                                 </Flex>
@@ -136,7 +136,7 @@ export default function ModalFormComponent({isOpen, onClose, selectedUser} : any
                                     />
                                     </InputGroup>
                                     {errors && (
-                                    <FormErrorMessage>{errors.email && touched.email && errors.email}</FormErrorMessage>
+                                    <FormErrorMessage>{`${errors.email && touched.email && errors.email}`}</FormErrorMessage>
                                     )}
                                 </FormControl>
                                 </HStack>
@@ -157,7 +157,7 @@ export default function ModalFormComponent({isOpen, onClose, selectedUser} : any
                                     />
                                     </InputGroup>
                                     {errors && (
-                                        <FormErrorMessage>{errors.phone && touched.phone && errors.phone}</FormErrorMessage>
+                                        <FormErrorMessage>{`${errors.phone && touched.phone && errors.phone}`}</FormErrorMessage>
                                     )}
                                 </FormControl>
                                 </HStack>
@@ -177,7 +177,7 @@ export default function ModalFormComponent({isOpen, onClose, selectedUser} : any
                                     />
                                     </InputGroup>
                                     {errors && (
-                                        <FormErrorMessage>{errors.city && touched.city && errors.city}</FormErrorMessage>
+                                        <FormErrorMessage>{`${errors.city && touched.city && errors.city}`}</FormErrorMessage>
                                     )}
                                 </FormControl>
                                 </HStack>
@@ -197,7 +197,7 @@ export default function ModalFormComponent({isOpen, onClose, selectedUser} : any
                                     />
                                     </InputGroup>
                                     {errors && (
-                                        <FormErrorMessage>{errors.address && touched.address && errors.address}</FormErrorMessage>
+                                        <FormErrorMessage>{`${errors.address && touched.address && errors.address}`}</FormErrorMessage>
                                     )}
                                 </FormControl>
                                 </HStack>
@@ -221,7 +221,7 @@ export default function ModalFormComponent({isOpen, onClose, selectedUser} : any
                                     </InputRightElement>
                                     </InputGroup>
                                     {errors && (
-                                        <FormErrorMessage>{errors.password && touched.password && errors.password}</FormErrorMessage>
+                                        <FormErrorMessage>{`${errors.password && touched.password && errors.password}`}</FormErrorMessage>
                                     )}
                                 </FormControl>
                                 </HStack>
