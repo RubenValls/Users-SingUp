@@ -12,14 +12,12 @@ import { getInitialValues } from "../../utils/functions/localStorage";
 import { useState } from "react";
 import ModalFormComponent from "../../components/modalFormComponent";
 import { AiOutlineLock } from "react-icons/ai";
-import { deletedAll } from "../../reducers/usersReducer";
-import { useDispatch } from "react-redux";
+
 
 export default function Users() {
   const [selectedUser, setSelectedUser] : any = useState(null);
   const usersData : any = getInitialValues()
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const dispatch = useDispatch()
   
 
   const passwordTemplate = (user: any) => {
