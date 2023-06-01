@@ -29,7 +29,7 @@ export default function Singup() {
   const dispatch = useDispatch()
   const toast = useToast()
 
-  const checkSubmitAction = (values : any) => {
+  const checkSubmitAction = (values : any, resetForm: any) => {
     
     const _finded = users?.find((user : any) => user?.email === values?.email)
 
@@ -51,6 +51,7 @@ export default function Singup() {
         duration: 3000,
         isClosable: true,
       })
+      resetForm({values: initialValues})
     }
   }
 
@@ -62,8 +63,7 @@ export default function Singup() {
             validationSchema={validationSchema}
             initialValues={initialValues}
             onSubmit={(values, {resetForm}) => {
-              checkSubmitAction(values)
-              resetForm({values: initialValues})
+              checkSubmitAction(values, resetForm)
             }}
           >
             {({
