@@ -14,11 +14,11 @@ import "primereact/resources/primereact.min.css";
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
   <ChakraProvider>
-  <BrowserRouter>
   <Provider store={store}> 
+  <BrowserRouter>
     <App />
-  </Provider>
   </BrowserRouter>
+  </Provider>
   </ChakraProvider>
   </React.StrictMode>,
 )
