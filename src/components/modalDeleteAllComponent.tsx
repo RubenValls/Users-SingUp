@@ -8,7 +8,7 @@ import {
     Button,
     useToast,
 } from '@chakra-ui/react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { deletedAll } from '../reducers/usersReducer'
 
 export default function ModalDeleteAllComponent({
