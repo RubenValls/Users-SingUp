@@ -5,6 +5,7 @@ import {
   Tag, 
   Tooltip, 
   useDisclosure,
+  useToast,
 } from "@chakra-ui/react";
 import { DataTable } from 'primereact/datatable';
 import { Column } from "primereact/column";
@@ -21,6 +22,7 @@ export default function Users() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { isOpen: isOpenDelete, onOpen: onOpenDelete, onClose: onCloseDelete } = useDisclosure()
   const cancelRef = useRef()
+  const toast = useToast()
   
 
   const passwordTemplate = (user: any) => {
@@ -33,10 +35,21 @@ export default function Users() {
     )
   };
 
+  const checkDelete = () => {
+    usersData?.length > 0
+      ? onOpenDelete()
+      : toast({
+        title: 'There are no users to delete',
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+    })
+  }
+
   const getFooter = () => {
     return (
       <Center>
-        <Button colorScheme='red' onClick={onOpenDelete}>Delete all data</Button>
+        <Button colorScheme='red' onClick={checkDelete}>Delete all data</Button>
       </Center>
     )
   };

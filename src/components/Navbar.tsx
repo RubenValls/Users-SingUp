@@ -33,7 +33,7 @@ export default function Navbar() {
                     >
                         <Flex>
                             <Center>
-                                <AiOutlineUserAdd/> <Text ml='5px'>User - Sign Up</Text>
+                                <AiOutlineUserAdd/> <Text ml='5px'>Sign Up</Text>
                             </Center>
                         </Flex>
                     </NavLink>

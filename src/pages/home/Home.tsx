@@ -104,7 +104,7 @@ export default function Home() {
         </Wrap>
         <Box w="100vw" h="auto">
           <Center>
-            <Heading mt="50px" mb="50px" as="i">
+            <Heading mt="30px" mb="50px" as="i">
               Technologies used
             </Heading>
           </Center>

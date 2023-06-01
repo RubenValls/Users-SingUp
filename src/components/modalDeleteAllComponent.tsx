@@ -22,7 +22,7 @@ export default function ModalDeleteAllComponent({
     const deleteAll = () => {
         dispatch(deletedAll())
             toast({
-                title: 'Usuarios eliminados correctamente',
+                title: 'Users deleted correctly',
                 status: 'success',
                 duration: 3000,
                 isClosable: true,
