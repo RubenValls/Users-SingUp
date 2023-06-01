@@ -1,7 +1,8 @@
-export const checkEmailRepeat = (users: any, initialValues: any, value: any) =>{
+export const checkEmailRepeat = (users: any, value: any) =>{
     let _repeat = false
     users.map((user: any) => {
-        user.email === value?.email && value?.email !== initialValues
+        console.log(user, value)
+        user.email === value?.email && user?.id !== value.id
             ? _repeat = true
             : null
     })

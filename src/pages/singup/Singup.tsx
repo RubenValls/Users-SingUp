@@ -42,6 +42,7 @@ export default function Singup() {
         isClosable: true,
       }) 
     }else{
+      values.id = users?.length > 0 ? users[users.length - 1].id + 1 : 0
       dispatch(added(values))
       toast({
         title: 'Account created.',
@@ -50,7 +51,6 @@ export default function Singup() {
         duration: 3000,
         isClosable: true,
       })
-      values = initialValues
     }
   }
 
@@ -61,8 +61,9 @@ export default function Singup() {
           <Formik
             validationSchema={validationSchema}
             initialValues={initialValues}
-            onSubmit={(values) => {
+            onSubmit={(values, {resetForm}) => {
               checkSubmitAction(values)
+              resetForm({values: initialValues})
             }}
           >
             {({

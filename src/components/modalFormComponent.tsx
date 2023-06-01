@@ -38,6 +38,7 @@ export default function ModalFormComponent({isOpen, onClose, selectedUser} : any
     const toast = useToast()
 
     const initialValues = {
+        id: selectedUser?.id,
         name: selectedUser?.name || "",
         surname: selectedUser?.surname || "",
         email: selectedUser?.email || "", 
@@ -49,7 +50,7 @@ export default function ModalFormComponent({isOpen, onClose, selectedUser} : any
 
     const checkSubmitAction = (values : any) => {
         if(action === 'update'){
-            if(checkEmailRepeat(users, initialValues, values)){
+            if(checkEmailRepeat(users, values)){
                 toast({
                     title: 'Another user has the same email.',
                     status: 'error',
