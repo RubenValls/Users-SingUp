@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <>
       <VStack>
-        <Box h='auto' w='100%' ml='10px' mr='10px'>
-          <Box maxW='40rem' mt='50px'>
+        <Box h='auto' w='100%'>
+          <Box maxW='40rem' m='30px'>
             <Heading mb={4}>What is this?</Heading>
             <Text fontSize='xl'>
               This web application is a small personal project to practice working with forms, states, and information control from the user's perspective.
