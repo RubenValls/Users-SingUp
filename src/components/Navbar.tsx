@@ -14,7 +14,7 @@ export default function Navbar() {
 
     return (
     <>
-        <Tabs variant='soft-rounded' colorScheme='green'>
+        <Tabs variant='soft-rounded' colorScheme='green' m='20px'>
             <TabList>
                 <Tab>
                     <NavLink
