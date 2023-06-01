@@ -5,7 +5,6 @@ import {
     AlertDialogHeader,
     AlertDialogContent,
     AlertDialogOverlay,
-    AlertDialogCloseButton,
     Button,
     useToast,
 } from '@chakra-ui/react'
@@ -17,8 +16,6 @@ export default function ModalDeleteAllComponent({
     onClose,
     cancelRef,
 }: any) {
-
-    const users : any = useSelector((state: any) => state?.value)
     const dispatch = useDispatch()
     const toast = useToast()
 
