@@ -52,7 +52,7 @@ export default function Home() {
             </Box>
           </Center>
         </Box>
-        <Wrap spacing="30px" height="auto" justify="center">
+        <Wrap spacing="30px" height="auto" justify="center" p='20px'>
           <WrapItem>
             <Box>
               <Image
