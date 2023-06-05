@@ -1,0 +1,9 @@
+.chakra-image:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.chakra-image:not(:hover){
+    transform: scale(1);
+    transition: 0.5s;
+}

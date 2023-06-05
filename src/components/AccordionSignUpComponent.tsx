@@ -56,16 +56,6 @@ export default function AccordionSignUpComponent() {
               <Wrap spacing="30px" justify="center">
                 <WrapItem>
                   <Center w="200px" h="auto">
-                    <Link href="https://es.react.dev/" isExternal>
-                      <Image
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"
-                        alt="React"
-                      />
-                    </Link>
-                  </Center>
-                </WrapItem>
-                <WrapItem>
-                  <Center w="200px" h="auto">
                     <Link href="https://chakra-ui.com" isExternal>
                       <Image
                         src="https://www.happylifecreators.com/wp/wp-content/uploads/2022/06/chakra-ui_title2-400x400.png"
@@ -88,7 +78,7 @@ export default function AccordionSignUpComponent() {
                   <Center w="200px" h="auto">
                     <Link href="https://www.npmjs.com/package/yup" isExternal>
                       <Image
-                        src="https://scontent.fvlc4-1.fna.fbcdn.net/v/t39.30808-6/304814120_493614916108770_116017798484316257_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=eImtvrd0fV0AX-RHH5i&_nc_ht=scontent.fvlc4-1.fna&oh=00_AfA9Cm7rPNG5pUg7F2H1-EAtfMw0oCYef8iI0YKgQZfcZQ&oe=647C9001"
+                        src="https://media.licdn.com/dms/image/C4D0BAQHHQHP6KFmrNQ/company-logo_200_200/0/1663569046136?e=2147483647&v=beta&t=UpFHV8IOJGbB8MvLaEVX8XvyOC5uRKWqMmgYW-S0PuE"
                         alt="Yup"
                       />
                     </Link>

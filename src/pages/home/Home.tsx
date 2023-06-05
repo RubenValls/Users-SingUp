@@ -15,15 +15,18 @@ import {
   Flex,
   Tooltip,
 } from "@chakra-ui/react";
+import { AiOutlineForm } from "react-icons/ai";
 import { BsGithub } from "react-icons/bs";
+import { GiTechnoHeart } from "react-icons/gi";
+import { CiViewTable } from "react-icons/ci";
 
 export default function Home() {
   return (
     <>
-      <VStack w="100%">
-        <Box h="auto" w="100%" mb="50px">
+      <VStack>
+        <Box h="auto" mb="50px">
           <Center>
-            <Box maxW="40rem" m="30px">
+            <Box maxW="40rem" m="30px" padding="20px">
               <Heading mb={4} as="i">
                 What is this?
               </Heading>
@@ -54,7 +57,7 @@ export default function Home() {
         </Box>
         <Wrap spacing="30px" height="auto" justify="center" p='20px'>
           <WrapItem>
-            <Box>
+            <Box padding="20px" alignContent="center">
               <Image
                 src="https://www.formbot.com/images/free-online-form-builder.png"
                 alt="form"
@@ -62,13 +65,13 @@ export default function Home() {
             </Box>
           </WrapItem>
           <WrapItem>
-            <Box>
+            <Box padding="20px">
               <Center h="325px">
                 <List spacing={3}>
                   <ListItem>
                     <Flex>
                       <Center>
-                        <ListIcon as={BsGithub} color="green.500" />
+                        <ListIcon as={AiOutlineForm} color="green.500" />
                         <Text as="i">
                           Controlled form for user creation and registration.
                         </Text>
@@ -78,7 +81,7 @@ export default function Home() {
                   <ListItem>
                     <Flex>
                       <Center>
-                        <ListIcon as={BsGithub} color="green.500" />
+                        <ListIcon as={CiViewTable} color="green.500" />
                         <Text as="i">
                           Display of a user list in table format with
                           corresponding actions.
@@ -89,7 +92,7 @@ export default function Home() {
                   <ListItem>
                     <Flex>
                       <Center>
-                        <ListIcon as={BsGithub} color="green.500" />
+                        <ListIcon as={GiTechnoHeart} color="green.500" />
                         <Text as="i">
                           Use of different technologies for design and state
                           management.
@@ -102,14 +105,14 @@ export default function Home() {
             </Box>
           </WrapItem>
         </Wrap>
-        <Box w="100vw" h="auto">
+        <Box w="100" h="auto">
           <Center>
             <Heading mt="30px" mb="50px" as="i">
               Technologies used
             </Heading>
           </Center>
           <Center>
-            <Wrap spacing="75px" justify="center">
+            <Wrap spacing="75px" justify="center" padding="20px">
               <WrapItem>
                 <Center w="150px" h="auto">
                   <Link href="https://es.react.dev/" isExternal>
@@ -172,7 +175,7 @@ export default function Home() {
                 <Center w="150px" h="auto">
                   <Link href="https://www.npmjs.com/package/yup" isExternal>
                     <Image
-                      src="https://scontent.fvlc4-1.fna.fbcdn.net/v/t39.30808-6/304814120_493614916108770_116017798484316257_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=eImtvrd0fV0AX-RHH5i&_nc_ht=scontent.fvlc4-1.fna&oh=00_AfA9Cm7rPNG5pUg7F2H1-EAtfMw0oCYef8iI0YKgQZfcZQ&oe=647C9001"
+                      src="https://media.licdn.com/dms/image/C4D0BAQHHQHP6KFmrNQ/company-logo_200_200/0/1663569046136?e=2147483647&v=beta&t=UpFHV8IOJGbB8MvLaEVX8XvyOC5uRKWqMmgYW-S0PuE"
                       alt="Yup"
                     />
                   </Link>

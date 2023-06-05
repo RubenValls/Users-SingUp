@@ -11,6 +11,8 @@ export const initialValues = {
     password: ""
 }
 
+const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+
 export const validationSchema = Yup.object().shape({
     name: Yup.string()
         .required("Name is a required field"),
@@ -20,7 +22,8 @@ export const validationSchema = Yup.object().shape({
         .required("Email is a required field")
         .email("Invalid email format"),
     phone: Yup.string()
-        .required("Phone is a required field"),
+        .required("Phone is a required field")
+        .matches(phoneRegExp, 'Phone number is not valid'),
     city: Yup.string()
         .required("City Name is a required field"),
     address: Yup.string()
